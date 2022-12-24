@@ -1,0 +1,182 @@
+# file.yaml
+---
+
+screens:
+  - id: 0
+    layout: "2col"
+    title: "Why Build Green?"
+    
+    icon: "./src//assets/icons/icon-0.svg"
+    iconSize: "small"
+    bg: "./src/assets/backgrounds/background_0.jpg"
+    
+    content:
+      column1: >
+        <p>In 2003, Muhlenberg established the President’s Committee on Sustainability, a leadership group composed of faculty, staff, and student representatives charged with supporting the College’s strategic coals of sustainability and environmental citizenship.</p><br/>
+        <p>In 2018, Muhlenberg College set out to renovate the vacant Sigma Phi Epsilon house, formerly located on this site, into a multi-purpose academic building. After careful study, the decision was made to demolish and recycle the existing structure and build a new, innovative academic building exemplifying the College’s commitment to sustainability.</p>
+        
+      column2: >
+        <p>The Fahy Commons for Innovation and Public Engagement has been designed to be a learning facility. It collects rainwater, produces energy, provides a healthy indoor environment, and promotes collaboration among faculty, staff, and students. It stands as a testament to Muhlenberg’s commitment to Sustainability and community welfare in the 21st Century.</p>
+    
+    showSidebar: true
+    showSidebarBackground: true
+    sidebar: >
+      <b>Re:Vision</b>
+      <br/>
+      <small>Architect</small>
+      <br/><br/>
+      
+      <b>Building Systems Engineering Group</b>
+      <br/>
+      <small>Systems Engineer</small>
+      <br/><br/>
+      
+      <b>O’Donnell & Naccarato</b>
+      <br/>
+      <small>Structural Engineer</small>
+      <br/><br/>
+      
+      <b>ThinkGreen</b>
+      <br/>
+      <small>Landscape Architect</small>
+      <br/><br/>
+      
+      <b>Keystone Consulting Engineers</b>
+      <br/>
+      <small>Civil</small>
+      <br/><br/>
+      
+      <b>Cloud Gehshan</b>
+      <br/>
+      <small>Signage & Wayfinding</small>
+      <br/><br/>
+      
+      <b>Whiting Turner</b>
+      <br/>
+      <small>Construction Manager</small>
+      <br/><br/>      
+      
+  - id: 1
+    layout: "2col"
+    title: "A Model Of Authentic Sustainability"
+    
+    icon: "./src/assets/icons/icon-1.svg"
+    iconSize: "xlarge"
+    bg: "./src/assets/backgrounds/background_1.jpg"
+    
+    content:
+      column1: >
+        <img src="./src/assets/slide1_leedplatinum.png" /><br/><br/>
+        <p><b>Leadership in Energy and Environmental Design</b></p><br/>
+        <p>Leadership in Energy and Environmental Design (LEED) is a globally recognized rating system established in 1993 by the United States Green Building Council to certify green building projects. It awards points based on a project’s location, site, water efficiency, energy use, materials sustainability, indoor environment, and innovation strategies.  This project received a Platinum rating, the highest available to LEED certified projects.</p>
+        
+      column2: >
+        <img src="./src/assets/slide1_lbc.png" /><br/><br/>
+        <p><b>Living Building Challenge</b></p><br/>
+        <p>The Living Building Challenge (LBC), developed and administered by the International Living Futures Institute, challenges all projects to make the world a better place. With focus on a project’s place, water, energy, materials, health, equity, and beauty, it is one of the most broad and deep green building certifications available. The Fahy Commons is designed to be LBC Core-ready, serving as a role model for sustainable design and redefining the future of the built environment at Muhlenberg College and beyond.</p>
+    
+    showSidebar: false
+    showSidebarBackground: false
+    
+  - id: 2
+    layout: "1col"
+    title: "An Educational Building Experience"
+    
+    icon: "./src/assets/icons/icon-2.svg"
+    iconSize: "large"
+    
+    bg: "./src/assets/backgrounds/placeholder.png"
+    qrcode: "./src/assets/qrcodes/filename.jpg"
+    
+    content: "./src/assets/slide2_building.png"
+    
+    showSidebar: true
+    showSidebarBackground: false
+    
+  - id: 3
+    layout: "dynamic"
+    title: "Building Energy Performance"
+    
+    icon: "./src/assets/icons/icon-3.svg"
+    iconSize: "large"
+    
+    bg: "./src/assets/backgrounds/placeholder.png"
+    qrcode: "./src/assets/qrcodes/filename.jpg"
+    
+    showSidebar: true
+    showSidebarBackground: false
+
+  - id: 4
+    layout: "dynamic"
+    title: "Water Efficiency + Rainwater Reuse"
+    
+    icon: "./src/assets/icons/icon-4.svg"
+    iconSize: "large"
+    
+    bg: "./src/assets/backgrounds/placeholder.png"
+    
+    showSidebar: true
+    showSidebarBackground: true
+    
+  - id: 5
+    layout: "2col"
+    title: "Birds + Bees"
+    
+    icon: "./src/assets/icons/icon-5.svg"    
+    bg: "./src/assets/backgrounds/placeholder.png"
+    
+    content:
+      column1: >
+        <p><b>Bird Glass</b></p><br/>
+        <p>Up to 1 billion birds die every year from striking buildings in the United States alone, usually in window areas where they are unable to perceive glass.  Study of this problem has been pioneered by Dr. Daniel Klem, Department of Ornithology since 1979. The patterns on the glass allow birds to see the windows and avoid deadly strikes.</p><br/>
+        <img src="./src/assets/slide5_birds.jpg" />
+        
+      column2: >
+        <p><b>Bee Brick</b></p><br/>
+        <p>Loss of native bee habitat is a major cause for the declining pollinator population. Bee Bricks create an ideal home for solitary bees, who will pollinate flowers and contribute to a healthy ecosystem. Look for several bricks that have been incorporated near the terraces.</p><br/><br/>
+        <img src="./src/assets/slide5_bees.jpg" />
+    
+    showSidebar: false
+    showSidebarBackground: false
+
+  - id: 6
+    layout: "1col"
+    title: "Ecological Landscape"
+    
+    icon: "./src/assets/icons/icon-6.svg"
+    bg: "./src/assets/backgrounds/placeholder.png"
+    
+    content: "./src/assets/images/image.png"
+    
+    showSidebar: true
+    showSidebarBackground: true
+    sidebar: >
+      Design doesn’t stop at the building. The Fahy Commons includes an ecological landscape design that includes native species, meadows, rain gardens, and areas of restoration at the forest edge.  
+    
+  - id: 7
+    layout: "1col"
+    title: "Social Equity By Design"
+    
+    icon: "./src/assets/icons/icon-7.svg"
+    bg: "./src/assets/backgrounds/background_7.jpg"    
+    content: "./src/assets/images/image.png"
+    
+    showSidebar: false
+    showSidebarBackground: false
+
+  - id: 8
+    layout: "1col"
+    title: "Biophilic Design"
+    
+    icon: "./src/assets/icons/icon-8.svg"
+    iconSize: "large"
+    
+    bg: "./src/assets/backgrounds/background_8.jpg"    
+    content: "./src/assets/slide8_biophilic.png"
+    
+    showSidebar: true
+    showSidebarBackground: true
+    sidebar: >
+      Humans have long had an intricate and purposeful connection with the natural environment that is often lost in modern indoor spaces.<br/><br/>
+      Biophilic Design is the integration of direct natural elements, indirect natural patterns and imagery, and place based experiences in the built environment as way to increase our connection to the natural environment.<br/><br/>
+      Look for biophilic elements throughout the design of the project, including direct views of the outdoors, natural materials and patterns, and areas of prospect and refuge. 
