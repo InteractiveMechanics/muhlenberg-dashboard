@@ -28,7 +28,7 @@ The dashboard's data for non-dynamic slides is controlled through a data file, `
 * showSidebar - a boolean value for whether or not to include a sidebar
 * showSidebarBackground - a boolean value for whether or not to show the white background behind the sidebar
 * sidebar - the text and image content in the sidebar
-* qrcode - the path to the QR code image (size: XX x XX)
+* qrcode - the path to the QR code image (size: 500 x 500)
 
 ## To Do List
 - [ ] General - Build out conditional branding overlay on top of background image
@@ -36,7 +36,7 @@ The dashboard's data for non-dynamic slides is controlled through a data file, `
 - [ ] General - Add in final static images and content
 - [ ] General - Create connection to HiveMQ data, parse data
 - [ ] General - Add slide specific timing override for slide duration
-- [ ] General - Add sample for QR code graphic placement and size, update docs
+- [x] General - Add sample for QR code graphic placement and size, update docs
 - [ ] Slide 5 - Convert rainwater data and style/finalize tank level graph
 - [ ] Slide 5 - Style/finalize rainwater collection graph
 - [ ] Slide 5 - Add in dynamic data to paragraph text
