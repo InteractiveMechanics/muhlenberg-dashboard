@@ -32,10 +32,10 @@ The dashboard's data for non-dynamic slides is controlled through a data file, `
 
 ## To Do List
 - [x] General - Build out conditional branding overlay on top of background image
-- [ ] General - Fade in title, content, and sidebar animations
-- [ ] General - Add in final static images and content
-- [ ] General - Create connection to HiveMQ data, parse data
+- [x] General - Fade in title, content, and sidebar animations
 - [x] General - Add sample for QR code graphic placement and size, update docs
+- [ ] General - Create connection to HiveMQ data, parse data
+- [ ] General - Add in final static images and content
 - [ ] Slide 4 - Add in last updated on date stamp
 - [ ] Slide 5 - Add in last updated on date stamp
 
