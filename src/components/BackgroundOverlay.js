@@ -1,29 +1,27 @@
 import React from "react";
 import { motion } from "framer-motion/dist/framer-motion";
 
-export function Background(props) {	
-	const bg = props.bg;
-	
+export function BackgroundOverlay(props) {		
 	const animationConfiguration = {
     initial: { 
-	    opacity: 0,
-	    transition: {
-		    duration: 1,
-		    delay: 0
-	    }
-	  },
-    animate: { 
 	    opacity: 1,
 	    transition: {
 		    duration: 1,
 		    delay: 0
 	    }
 	  },
+    animate: { 
+	    opacity: 0,
+	    transition: {
+		    duration: 1,
+		    delay: 2
+	    }
+	  },
     exit: { 
 	    opacity: 0,
 	    transition: {
 		    duration: 1,
-		    delay: 1
+		    delay: 0
 	    }
 	  }
 	};
@@ -34,8 +32,8 @@ export function Background(props) {
       initial="initial"
       animate="animate"
       exit="exit"
-      className="background">
-				<img src={ bg } />
+      className="backgroundOverlay">
+				<img src="./src/assets/backgrounds/overlay.png" />
 		</motion.div>
   );
 }

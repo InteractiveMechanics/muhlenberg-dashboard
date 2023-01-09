@@ -1,6 +1,6 @@
 html,
 body {
-	background: #103D3D;
+	background: #212123;
 	overflow: hidden;
 }
 
@@ -21,6 +21,15 @@ main {
 		z-index: 1;
 	}
 	
+	.backgroundOverlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 2;
+	}
+	
 	.layoutContainer {
 		position: absolute;
 		top: 0;
@@ -28,7 +37,7 @@ main {
 		padding-left: calc(60px + 222px + 96px);
 		width: calc(100vw - (222px + 96px + 60px));
 		height: 100vh;
-		z-index: 2;
+		z-index: 3;
 		background: rgba(0,0,0,0.7);
 		
 		.wrapper {
@@ -45,7 +54,7 @@ main {
 	padding-top: calc(160px + 240px);
 	position: absolute;
 	top: 0;
-	z-index: 3;
+	z-index: 4;
 	
 	.nav--icon {
 		text-align: center;

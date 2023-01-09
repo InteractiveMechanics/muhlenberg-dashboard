@@ -1,10 +1,59 @@
 import React from "react";
+import { motion } from "framer-motion/dist/framer-motion";
 
 import { DashboardEnergy } from './DashboardEnergy';
 import { DashboardWater } from './DashboardWater';
 
 export function Content(props) {
 	const data = props.data;
+	
+	const animationTitleConfiguration = {
+    initial: { 
+	    opacity: 0,
+	    transition: {
+		    duration: 1,
+		    delay: 0
+	    }
+	  },
+    animate: { 
+	    opacity: 1,
+	    transition: {
+		    duration: 1,
+		    delay: 3
+	    }
+	  },
+    exit: { 
+	    opacity: 0,
+	    transition: {
+		    duration: 1,
+		    delay: 0
+	    }
+	  }
+	};
+	
+	const animationBodyConfiguration = {
+    initial: { 
+	    opacity: 0,
+	    transition: {
+		    duration: 1,
+		    delay: 0
+	    }
+	  },
+    animate: { 
+	    opacity: 1,
+	    transition: {
+		    duration: 1,
+		    delay: 3.5
+	    }
+	  },
+    exit: { 
+	    opacity: 0,
+	    transition: {
+		    duration: 1,
+		    delay: 0
+	    }
+	  }
+	};
 	
 	const buildClasses = `content--main ${data.showSidebar ? "" : "expanded"} ${data.layout}`;
 	
@@ -30,10 +79,23 @@ export function Content(props) {
 	
   return (
 	  <div className="content">
-			<div className="content--title"><h1>{ data.title }</h1></div>
-			<div className={ buildClasses }>
-				{ buildContent() }
-			</div>
+	  
+			<motion.div
+	  	  variants={ animationTitleConfiguration }
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className="content--title">
+          <h1>{ data.title }</h1>
+      </motion.div>
+			<motion.div
+	  	  variants={ animationBodyConfiguration }
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        className={ buildClasses }>
+				  { buildContent() }
+			</motion.div>
 		</div>
   );
 }

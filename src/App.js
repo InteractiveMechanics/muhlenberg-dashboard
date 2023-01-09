@@ -8,9 +8,9 @@ import './App.scss';
 
 export function App(props) {		
 	const data = props.data;
-	const timer = 1500000;
+	const timer = 20000;
 	
-	const [activeId, setActiveId] = useState(7);
+	const [activeId, setActiveId] = useState(0);
   
   useInterval(() => {
 	  if (activeId < data.screens.length - 1) {
@@ -19,7 +19,6 @@ export function App(props) {
 	  	setActiveId(0);
 	  }
   }, timer);
-  // Set timer back down
 
   return (
     <Screen data={data} activeId={activeId} />

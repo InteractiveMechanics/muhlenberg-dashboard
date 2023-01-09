@@ -8,7 +8,7 @@ screens:
     
     icon: "./src//assets/icons/icon-0.svg"
     iconSize: "small"
-    bg: "./src/assets/backgrounds/background_0.jpg"
+    bg: "./src/assets/backgrounds/background_1.jpg"
     
     content:
       column1: >
@@ -18,6 +18,7 @@ screens:
       column2: >
         <p>The Fahy Commons for Innovation and Public Engagement has been designed to be a learning facility. It collects rainwater, produces energy, provides a healthy indoor environment, and promotes collaboration among faculty, staff, and students. It stands as a testament to Muhlenberg’s commitment to Sustainability and community welfare in the 21st Century.</p>
     
+    showBackgroundOverlay: true
     showSidebar: true
     showSidebarBackground: true
     sidebar: >
@@ -86,7 +87,7 @@ screens:
     iconSize: "large"
     
     bg: "./src/assets/backgrounds/placeholder.png"
-    qrcode: "./src/assets/qrcodes/filename.jpg"
+    qrcode: "./src/assets/qrcodes/sample.jpg"
     
     content: "./src/assets/slide2_building.png"
     

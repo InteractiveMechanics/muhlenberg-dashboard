@@ -2,7 +2,7 @@ import React from "react";
 import { Connector, useMqttState, useSubscription } from 'mqtt-react-hooks';
 
 export function DashboardWater(props) {		
-	const { connectionStatus } = useMqttState();
+	const { message, connectionStatus } = useSubscription('my/test/topic');
 	
   return (
 	  <Connector brokerUrl="wss://2199f66541494bce8833122e68316717.s1.eu.hivemq.cloud:8884/mqtt" options={{ username: "muhlenberg_test", password: "muhlenberg2022!" }}>
