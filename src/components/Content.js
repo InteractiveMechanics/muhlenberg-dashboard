@@ -35,7 +35,7 @@ export function Content(props) {
     initial: { 
 	    opacity: 0,
 	    transition: {
-		    duration: 1,
+		    duration: 0,
 		    delay: 0
 	    }
 	  },
@@ -71,10 +71,11 @@ export function Content(props) {
 					<div dangerouslySetInnerHTML={{ __html: data.content.column2 }} />
 				</>
 			)
-		} else {
-			if (data.id == 3) { return ( <DashboardEnergy /> ) }
-			if (data.id == 4) { return ( <DashboardWater /> ) }
 		}
+		//else {
+			//if (data.id == 3) { return ( <DashboardEnergy /> ) }
+			//if (data.id == 4) { return ( <DashboardWater /> ) }
+		//}
 	}
 	
   return (

@@ -8,7 +8,7 @@ import './App.scss';
 
 export function App(props) {		
 	const data = props.data;
-	const timer = 20000;
+	const timer = 30000;
 	
 	const [activeId, setActiveId] = useState(0);
   

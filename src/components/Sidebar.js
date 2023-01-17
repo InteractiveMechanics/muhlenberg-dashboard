@@ -8,7 +8,7 @@ export function Sidebar(props) {
     initial: { 
 	    opacity: 0,
 	    transition: {
-		    duration: 1,
+		    duration: 0,
 		    delay: 0
 	    }
 	  },

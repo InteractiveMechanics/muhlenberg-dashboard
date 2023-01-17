@@ -8,7 +8,7 @@ export function Background(props) {
     initial: { 
 	    opacity: 0,
 	    transition: {
-		    duration: 1,
+		    duration: 0,
 		    delay: 0
 	    }
 	  },
@@ -23,7 +23,7 @@ export function Background(props) {
 	    opacity: 0,
 	    transition: {
 		    duration: 1,
-		    delay: 1
+		    delay: 0
 	    }
 	  }
 	};
