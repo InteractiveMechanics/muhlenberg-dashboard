@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 const TerserWebpackPlugin = require("terser-webpack-plugin");
 const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = function(_env, argv) {
   const isProduction = argv.mode === "production";
@@ -14,8 +15,8 @@ module.exports = function(_env, argv) {
     entry: "./src/index.js",
     output: {
       path: path.resolve(__dirname, "dist"),
-      filename: "assets/js/[name].[contenthash:8].js",
-      publicPath: "/"
+      filename: "./assets/js/[name].[contenthash:8].js",
+      publicPath: ""
     },
     module: {
       rules: [
@@ -75,6 +76,12 @@ module.exports = function(_env, argv) {
           filename: "assets/css/[name].[contenthash:8].css",
           chunkFilename: "assets/css/[name].[contenthash:8].chunk.css"
         }),
+      isProduction &&
+      	new CopyPlugin({
+		      patterns: [
+		        { from: "src/assets", to: "src/assets" },
+		      ],
+		    }),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "public/index.html"),
         inject: true
