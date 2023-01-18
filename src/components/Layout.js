@@ -21,7 +21,7 @@ export function Layout(props) {
 	    opacity: 1,
 	    transition: {
 		    duration: 1,
-		    delay: 2
+		    delay: 3
 	    }
 	  },
     exit: { 

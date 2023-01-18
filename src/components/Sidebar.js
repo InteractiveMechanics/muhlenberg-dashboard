@@ -16,7 +16,7 @@ export function Sidebar(props) {
 	    opacity: 1,
 	    transition: {
 		    duration: 1,
-		    delay: 4
+		    delay: 5
 	    }
 	  },
     exit: { 

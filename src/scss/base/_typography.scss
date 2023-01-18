@@ -1,19 +1,18 @@
 * {
-	font-family: "MerriweatherSans-Regular";
+	font-family: "MerriweatherSans-Light" !important;
 	color: white;
 	text-decoration: none;
 }
 
 h1, h2, h3, h4 {
-	font-family: "MerriweatherSans-Bold";
+	font-family: "MerriweatherSans-Bold" !important;
 }
 h1 {
 	font-size: 144px;
 }
 h2 {
-	font-size: 84px;
+	font-size: 62px;
 	color: white;
-	margin-bottom: 100px;
 }
 h3 {
 	font-size: 47px;
@@ -22,5 +21,5 @@ h3 {
 }
 
 b {
-	font-family: "MerriweatherSans-Bold";
+	font-family: "MerriweatherSans-Bold" !important;
 }

@@ -100,8 +100,8 @@ main {
 		margin-top: 100px;
 		
 		font-size: 55px;
-		font-family: "MerriweatherSans-Light";
-		line-height: 85px;
+		font-family: "MerriweatherSans-Light" !important;
+		line-height: 80px;
 		
 		&.expanded {
 			width: calc(100% + 540px + 96px);
@@ -139,14 +139,14 @@ main {
 	  height: 1500px;
 	  margin-top: 100px;
 	  
-	  font-size: 42px;
-	  line-height: 58px;
-	  font-family: "MerriweatherSans-Regular";
+	  font-size: 40px;
+	  line-height: 62px;
+	  font-family: "MerriweatherSans-Light" !important;
 	  color: black;
 	  
 	  * { color: black; }
-	  b { font-family: "MerriweatherSans-Bold"; font-size: 42px; }
-	  small { font-family: "MerriweatherSans-Light"; font-size: 36px; }
+	  b { font-family: "MerriweatherSans-Bold" !important; font-size: 42px; }
+	  small { font-family: "MerriweatherSans-Light" !important; font-size: 36px; }
   }
   .sidebar--logo {
 	  height: 240px;
@@ -158,7 +158,7 @@ main {
   }
   .sidebar--qrcode {
 	  font-size: 34px;
-	  font-family: "MerriweatherSans-Bold";
+	  font-family: "MerriweatherSans-Bold" !important;
 	  position: absolute;
 	  bottom: 160px;
 	  
@@ -254,7 +254,7 @@ main {
     text-align: center;
     left: 0;
     width: 100%;
-    font-family: "MerriweatherSans-Bold";
+    font-family: "MerriweatherSans-Bold" !important;
 	}
 	
 	.chart--donut {

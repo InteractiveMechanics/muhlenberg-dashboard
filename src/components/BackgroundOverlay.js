@@ -14,7 +14,7 @@ export function BackgroundOverlay(props) {
 	    opacity: 0,
 	    transition: {
 		    duration: 1,
-		    delay: 2
+		    delay: 3
 	    }
 	  },
     exit: { 

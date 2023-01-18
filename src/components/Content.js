@@ -19,7 +19,7 @@ export function Content(props) {
 	    opacity: 1,
 	    transition: {
 		    duration: 1,
-		    delay: 3
+		    delay: 4
 	    }
 	  },
     exit: { 
@@ -43,7 +43,7 @@ export function Content(props) {
 	    opacity: 1,
 	    transition: {
 		    duration: 1,
-		    delay: 3.5
+		    delay: 4.5
 	    }
 	  },
     exit: { 
