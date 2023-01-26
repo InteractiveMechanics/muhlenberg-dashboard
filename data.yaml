@@ -67,12 +67,12 @@ screens:
     
     content:
       column1: >
-        <img src="./src/assets/slide1_leedplatinum.png" /><br/><br/>
+        <img src="./src/assets/slide1_leedplatinum.png" style="max-width: 150px;" /><br/><br/>
         <h2>Leadership in Energy and Environmental Design</h2><br/>
         <p>Leadership in Energy and Environmental Design (LEED) is<br/>a globally recognized rating system established in 1993 by the United States Green Building Council to certify green building projects. It awards points based on a project’s location, site, water efficiency, energy use, materials sustainability, indoor environment, and innovation strategies.  This project received a Platinum rating, the highest available to LEED certified projects.</p>
         
       column2: >
-        <img src="./src/assets/slide1_lbc.png" style="min-height: 300px;" /><br/><br/>
+        <img src="./src/assets/slide1_lbc.png" style="max-width: 350px; min-height: 150px;" /><br/><br/>
         <h2>Living Building Challenge</h2><br/>
         <p>The Living Building Challenge (LBC), developed and administered by the International Living Futures Institute, challenges all projects to make the world a better place. With focus on a project’s place, water, energy, materials, health, equity, and beauty, it is one of the most broad<br/>and deep green building certifications available. The Fahy Commons is designed to be LBC Core-ready, serving as<br/>a role model for sustainable design and redefining the<br/>future of the built environment at Muhlenberg College<br/>and beyond.</p>
     
@@ -126,7 +126,7 @@ screens:
     showSidebarBackground: true
     sidebar: >
       <p>Design doesn't stop at the building.  Fahy Commons includes an ecological landscape design that includes native species and stormwater management strategies, all working together to filter runoff, recharge groundwater, encourage pollination, and sequester carbon.</p><br/>
-      <img src="./src/assets/slide6_legend.png" /> 
+      <img src="./src/assets/slide6_legend.png" style="max-width: 100%;" /> 
     
   - id: 5
     layout: "2col"

@@ -19,6 +19,10 @@ main {
 		width: 100vw;
 		height: 100vh;
 		z-index: 1;
+		
+		img {
+			max-width: 100%;
+		}
 	}
 	
 	.backgroundOverlay {
@@ -28,6 +32,10 @@ main {
 		width: 100vw;
 		height: 100vh;
 		z-index: 2;
+		
+		img {
+			max-width: 100%;
+		}
 	}
 	
 	.layoutContainer {
@@ -40,9 +48,19 @@ main {
 		z-index: 3;
 		background: rgba(0,0,0,0.7);
 		
+		@media only screen and (max-width: 1920px) {
+			padding-left: calc(111px + 48px + 30px);
+			width: calc(100vw - (111px + 48px + 30px));
+		}
+		
 		.wrapper {
 			padding: 160px 60px 160px 0;
 			height: calc(100% - 320px);
+			
+			@media only screen and (max-width: 1920px) {
+				padding: 80px 30px 80px 0;
+				height: calc(100% - 160px);
+			}
 		}
 	}
 }
@@ -56,23 +74,46 @@ main {
 	top: 0;
 	z-index: 4;
 	
+	@media only screen and (max-width: 1920px) {
+		width: 111px;
+		margin-left: 30px;
+		height: calc(100% - 160px - 120px);
+		padding-top: calc(80px + 120px);
+	}
+	
 	.nav--icon {
 		text-align: center;
 		padding: 60px 0;
 		
+		@media only screen and (max-width: 1920px) {
+			padding: 30px 0;	
+		}
+		
 		&.large {
 			img {
 				max-height: 60px;
+				
+				@media only screen and (max-width: 1920px) {
+					max-height: 30px;	
+				}
 			}
 		}
 		&.small {
 			img {
 				max-height: 40px;
+				
+				@media only screen and (max-width: 1920px) {
+					max-height: 20px;	
+				}
 			}
 		}
 		&.xlarge {
 			img {
 				max-height: 72px;
+				
+				@media only screen and (max-width: 1920px) {
+					max-height: 36px;	
+				}
 			}
 		}
 		
@@ -80,6 +121,10 @@ main {
 			width: auto;
 			max-height: 48px;
 			opacity: 0.4;
+			
+			@media only screen and (max-width: 1920px) {
+				max-height: 24px;	
+			}
 			
 			&.active { opacity: 1; }
 		}
@@ -90,21 +135,41 @@ main {
 	width: 2766px;
 	height: 100%;
 	
+	@media only screen and (max-width: 1920px) {
+		width: 1383px;	
+	}
+	
 	.content--title {
 		height: 240px;
 		width: 100%;
+		
+		@media only screen and (max-width: 1920px) {
+			height: 120px;
+		}
 	}
 	.content--main {
 		height: 1500px;
 		width: 100%;
 		margin-top: 100px;
 		
-		font-size: 55px;
+		font-size: 3.4375rem;
 		font-family: "MerriweatherSans-Light" !important;
 		line-height: 80px;
 		
+		@media only screen and (max-width: 1920px) {
+			font-size: 1.71875rem;
+			line-height: 40px;
+			
+			height: 750px;
+			margin-top: 50px;
+		}
+		
 		&.expanded {
 			width: calc(100% + 540px + 96px);
+			
+			@media only screen and (max-width: 1920px) {
+				width: calc(100% + 270px + 48px);
+			}
 		}
 		
 		&.\31 col {
@@ -118,6 +183,10 @@ main {
 			> div {
 				width: 50%;
 				margin-right: 100px;
+				
+				@media only screen and (max-width: 1920px) {
+					margin-right: 50px;	
+				}
 			}
 		}
 	}
@@ -131,42 +200,93 @@ main {
   top: 0;
   width: calc(540px + 60px + 96px);
   
+  @media only screen and (max-width: 1920px) {
+	  width: calc(270px + 30px + 48px);
+	}
+  
   .sidebar--wrapper {
 	  padding: 160px 60px 160px 96px;
 	  height: 100%;
+	  
+	  @media only screen and (max-width: 1920px) {
+			padding: 80px 30px 80px 48px; 
+		}
   }
   .sidebar--content {
 	  height: 1500px;
 	  margin-top: 100px;
 	  
-	  font-size: 40px;
+	  font-size: 2.5rem;
 	  line-height: 62px;
 	  font-family: "MerriweatherSans-Light" !important;
 	  color: black;
 	  
+	  @media only screen and (max-width: 1920px) {
+			 font-size: 1.25rem;
+			 line-height: 31px;
+			 
+			 height: 750px;
+			 margin-top: 50px;
+		}
+	  
 	  * { color: black; }
-	  b { font-family: "MerriweatherSans-Bold" !important; font-size: 42px; }
-	  small { font-family: "MerriweatherSans-Light" !important; font-size: 36px; }
+	  b { 
+		  font-family: "MerriweatherSans-Bold" !important; 
+		  font-size: 2.625rem; 
+		  
+		  @media only screen and (max-width: 1920px) {
+			  font-size: 1.3125rem;
+		  }
+		}
+		  
+	  small { 
+		  font-family: "MerriweatherSans-Light" !important; 
+		  font-size: 2.25rem;
+		  
+		  @media only screen and (max-width: 1920px) {
+			  font-size: 1.125rem;
+		  }
+		}
   }
   .sidebar--logo {
 	  height: 240px;
 	  width: 540px;
 	  
+	  @media only screen and (max-width: 1920px) {
+		 	height: 120px;
+		 	width: 270px; 
+		}
+	  
 	  img {
 		  max-width: 480px;
+		  
+		  @media only screen and (max-width: 1920px) {
+				max-width: 240px; 
+			}
 	  }
   }
   .sidebar--qrcode {
-	  font-size: 34px;
+	  font-size: 2.125rem;
 	  font-family: "MerriweatherSans-Bold" !important;
 	  position: absolute;
 	  bottom: 160px;
+	  
+	  @media only screen and (max-width: 1920px) {
+		  font-size: 1.0625rem;
+		  bottom: 80px;
+	  }
 	  
 	  img {
 		  display: block;
 		  margin-top: 20px;
 		  width: 250px;
 		  height: 250px;
+		  
+		  @media only screen and (max-width: 1920px) {
+				margin-top: 10px;
+				width: 125px;
+				height: 125px;			  
+			}
 	  }
   }
   
@@ -193,12 +313,21 @@ main {
 		height: calc(100% - 100px);
 		padding: 50px;
 		
+		@media only screen and (max-width: 1920px) {
+			height: calc(100% - 50px);
+			padding: 25px;
+		}
+		
 		&.large {
 			width: 66%;
 		}
 		
 		&.padding-right {
 			margin-right: 100px;
+			
+			@media only screen and (max-width: 1920px) {
+				margin-right: 50px;	
+			}
 		}
 		&.no-background {
 			background: none;
@@ -214,8 +343,17 @@ main {
 				min-width: calc(50% - 50px);
 				margin: 0 25px;
 				
+				@media only screen and (max-width: 1920px) {
+					min-width: calc(50% - 25px);
+					margin: 0 12.5px;
+				}
+				
 				&:first-of-type {
 					margin-right: 50px;
+					
+					@media only screen and (max-width: 1920px) {
+						margin-right: 25px;	
+					}
 				}
 			}
 		}
