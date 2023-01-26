@@ -34,13 +34,12 @@ The dashboard's data for non-dynamic slides is controlled through a data file, `
 - [x] General - Build out conditional branding overlay on top of background image
 - [x] General - Fade in title, content, and sidebar animations
 - [x] General - Add sample for QR code graphic placement and size, update docs
-- [ ] General - Create connection to HiveMQ data, parse data
-- [ ] General - Add in final static images and content
-- [ ] Slide 4 - Add in last updated on date stamp
-- [ ] Slide 5 - Add in last updated on date stamp
+- [x] General - Add in final static images and content
 
 ### Backlog
-- [ ] General - Add slide specific timing override for slide duration
+- [ ] General - Create connection to HiveMQ data, parse data
+- [ ] Slide 4 - Add in last updated on date stamp
+- [ ] Slide 5 - Add in last updated on date stamp
 - [ ] Slide 4 - Convert data and style/finalize annual energy production graph
 - [ ] Slide 4 - Convert data and style/finalize energy graphs
 - [ ] Slide 4 - Convert data and style/finalize carbon footprint metrics
