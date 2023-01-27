@@ -13,10 +13,10 @@ screens:
     content:
       column1: >
         <p>In 2003, Muhlenberg established the President’s Committee on Sustainability, a leadership group composed of faculty, staff, and student representatives charged with supporting the College’s strategic goals of sustainability and environmental citizenship.</p><br/>
-        <p>In 2018, Muhlenberg College set out to renovate the vacant Sigma Phi Epsilon house, formerly located on this site, into a multi-purpose academic building. After careful study, the decision was made to demolish and recycle the existing structure and build a new, innovative academic building exemplifying the College’s commitment to sustainability.</p>
+        <p>In 2018, Muhlenberg College set out to renovate the vacant Sigma Phi Epsilon house, formerly located on this site, into a multi-purpose academic building. After careful study, the decision was made to demolish and recycle the existing structure and build a new, innovative academic building exemplifying the College’s commitment to sustainability.</p>
         
       column2: >
-        <p>The Fahy Commons for Innovation and Public Engagement has been designed to be a learning facility. It collects rainwater, produces energy, provides a healthy indoor environment, and promotes collaboration among faculty, staff, and students. It stands as a testament to Muhlenberg’s commitment to Sustainability and community welfare in the 21st Century.</p>
+        <p>The Fahy Commons for Innovation and Public Engagement has been designed to be a learning facility. It collects rainwater, produces energy, provides a healthy indoor environment, and promotes collaboration among faculty, staff, and students. It stands as a testament to Muhlenberg’s commitment to Sustainability and community welfare in the 21st Century.</p>
     
     showBackgroundOverlay: true
     showSidebar: true
@@ -69,7 +69,7 @@ screens:
       column1: >
         <img src="./src/assets/slide1_leedplatinum.png" style="max-width: 150px;" /><br/><br/>
         <h2>Leadership in Energy and Environmental Design</h2><br/>
-        <p>Leadership in Energy and Environmental Design (LEED) is<br/>a globally recognized rating system established in 1993 by the United States Green Building Council to certify green building projects. It awards points based on a project’s location, site, water efficiency, energy use, materials sustainability, indoor environment, and innovation strategies.  This project received a Platinum rating, the highest available to LEED certified projects.</p>
+        <p>Leadership in Energy and Environmental Design (LEED) is<br/>a globally recognized rating system established in 1993 by the United States Green Building Council to certify green building projects. It awards points based on a project’s location, site, water efficiency, energy use, materials sustainability, indoor environment, and innovation strategies. This project received a Platinum rating, the highest available to LEED certified projects.</p>
         
       column2: >
         <img src="./src/assets/slide1_lbc.png" style="max-width: 350px; min-height: 150px;" /><br/><br/>
@@ -102,12 +102,12 @@ screens:
     content:
       column1: >
         <h2>Bird Glass</h2><br/>
-        <p>Up to 1 billion birds die every year from striking buildings<br/>in the United States alone, usually in window areas where they are unable to perceive glass.  Study of this problem has been pioneered by Dr. Daniel Klem, Department of Ornithology since 1979. The patterns on the glass allow birds to see the windows and avoid deadly strikes.</p><br/>
+        <p>Up to 1 billion birds die every year from striking buildings in the United States alone, usually in window areas where they are unable to perceive glass. Study of this problem has been pioneered by Dr. Daniel Klem, Department of Ornithology since 1979. The patterns on the glass allow birds to see the windows and avoid deadly strikes.</p><br/>
         <img src="./src/assets/slide5_birds.jpg" style="width: 100%;" />
         
       column2: >
         <h2>Bee Brick</h2><br/>
-        <p>Loss of native bee habitat is a major cause for the declining pollinator population. Bee Bricks create an ideal home for solitary bees, who will pollinate flowers and contribute to<br/>a healthy ecosystem. Look for several bricks that have been incorporated near the terraces.</p><br/><br/>
+        <p>Loss of native bee habitat is a major cause for the declining pollinator population. Bee Bricks create an ideal home for solitary bees, who will pollinate flowers and contribute to a healthy ecosystem. Look for several bricks that have been incorporated near the terraces.</p><br/><br/>
         <img src="./src/assets/slide5_bees.jpg" style="width: 100%;" />
     
     showSidebar: false
@@ -141,8 +141,8 @@ screens:
         <p>With the help of stakeholder feedback, the design team made several critical decisions to ensure an efficient and equitable project:</p>
         
       column2: >
-        <p>The new building provides an accessible path to the forest edge for all users. It was sited to allow uninterrupted views to the natural landscape surrounding the site. Beginning at the entry foyer, the forest beyond is the central focal point, and uninterrupted access to daylight and views are provided at the end of each flanking hallway.</p><br/>
-        <p>All public spaces within the project are shared. Classrooms, meeting spaces, lounges, and outdoor terraces are designed to be flexible spaces open to use by all faculty, staff, and students. Each space has views of trees and Lake Muhlenberg beyond.</p><br/>
+        <p>The new building provides an accessible path to the forest edge for all users. It was sited to allow uninterrupted views to the natural landscape surrounding the site. Beginning at the entry foyer, the forest beyond is the central focal point, and uninterrupted access to daylight and views are provided at the end of each flanking hallway.</p><br/>
+        <p>All public spaces within the project are shared. Classrooms, meeting spaces, lounges, and outdoor terraces are designed to be flexible spaces open to use by all faculty, staff, and students. Each space has views of trees and Lake Muhlenberg beyond.</p><br/>
         <p>Gender neutral bathrooms reinforce that this is a building for ALL community members.</p>
     
     showSidebar: false
