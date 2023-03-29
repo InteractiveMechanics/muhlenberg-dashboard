@@ -308,18 +308,14 @@ main {
 	height: 100%;
 	
 	.dashboard--container {
-		background: rgba(0,0,0,0.5);
-		width: 33%;
-		height: calc(100% - 100px);
-		padding: 50px;
-		
-		@media only screen and (max-width: 1920px) {
-			height: calc(100% - 50px);
-			padding: 25px;
-		}
+		width: 50%;
+		height: calc(100%);
 		
 		&.large {
-			width: 66%;
+			width: 60%;
+		}
+		&.small {
+			width: 40%;
 		}
 		
 		&.padding-right {
@@ -342,6 +338,7 @@ main {
 			.col {
 				min-width: calc(50% - 50px);
 				margin: 0 25px;
+				position: relative;
 				
 				@media only screen and (max-width: 1920px) {
 					min-width: calc(50% - 25px);
@@ -360,257 +357,101 @@ main {
 	}
 }
 
-.chart--wrapper {
-	height: 500px;
-	width: 100%;
-	padding: 50px 0;
-	position: relative;
-	
-	.min {
-		position: absolute;
-		color: #CCC;
-    font-size: 36px;
-    position: absolute;
-    top: 250px;
-    text-align: right;
-    left: 80px;
-	}
-	.max {
-		position: absolute;
-		color: #CCC;
-    font-size: 36px;
-    position: absolute;
-    top: 250px;
-    text-align: left;
-    left: 670px;
-	}
-	.total {
-		position: absolute;
-    font-size: 54px;
-    position: absolute;
-    top: 310px;
-    text-align: center;
-    left: 0;
-    width: 100%;
-    font-weight: 700;
-	}
-	
-	.chart--donut {
-	  width: 500px;
-	  height: 250px;
-	  position: relative;
-	  color: #fff;
-	  font-size: 22px;
-	  font-weight: 600;
-	  overflow: hidden;
-	  display: flex;
-	  align-items: flex-end;
-	  justify-content: center;
-	  box-sizing : border-box;
-	  margin: 0 auto;
-	  
-	  &:after {
-		  content: '';
-	    width: 500px;
-	    height: 500px;
-	    border: 45px solid;
-	    position: absolute;
-	    border-radius: 50%;
-	    left: 0;
-	    top: 0;
-	    box-sizing : border-box;
-	    animation : fillAnimation 1s ease-in;
-	  }
-	  
-	  .ticker {
-		  content: "";
-	    width: 6px;
-	    background: white;
-	    height: 130px;
-	    position: relative;
-	    top: -20px;
-	    left: 0;
-	    transform-origin: bottom;
-	    
-	    &:after{
-		    content: "";
-		    width: 24px;
-		    height: 24px;
-		    position: absolute;
-		    border-radius: 99px;
-		    background-color: white;
-		    bottom: 0;
-		    left: -8px;
-	    }
-	  }
-	}
-	
-	small {
-		display: block;
-		width: 50%;
-    line-height: 1.4;
-    text-align: center;
-    color: #CCC;
-    margin: 100px auto 0;
-    font-size: 36px;
-	}
+.last-updated {
+	font-size: 13px;
+	display: block;
+}
+.label {
+	font-size: 16px;
+}
+.larger-text {
+	font-size: 18px;
 }
 
+.rv-xy-plot {
+	text {
+		font-size: 12px;
+		font-weight: 500;
+		fill: white;
+	}
+}
+.rv-xy-plot__series--label text,
+.rv-radial-chart text {
+	fill: white;
+  font-weight: 500;
+  font-size: 21px;
+}
+
+
 .legend {
-	margin-top: 110px;
-	padding-left: 150px;
+	position: absolute;
+	width: 400px;
+	top: 100px;
+	left: 400px;
 	
 	&.no-margin {
 		margin-top: 0;
 	}
 	
 	li {
-		line-height: 1.5;
-		font-size: 36px;
+		line-height: 1.25;
+		font-size: 16px;
 		color: #CCC;
+		margin-bottom: 8px;
+    height: 24px;
 	}
 	
 	.legend--block {
-		width: 36px;
-		height: 36px;
-		display: inline-block;
-		margin-right: 30px;
+		width: 18px;
+		height: 18px;
+		display: block;
+    margin-right: 16px;
+    float: left;
 		
-		&.legend--block-green { background-color: #69b46e; }
-		&.legend--block-yellow { background-color: #e5bd4a; }
-		&.legend--block-red { background-color: #fe2b50; }
+		&.legend--block-green { background-color: #6aac6e; }
+		&.legend--block-red { background-color: #840c08; }
 		
-		&.legend--block-blue { background-color: #0680c4; }
-		&.legend--block-gray { background-color: #59595b; }
-		&.legend--block-lightblue { background-color: #8fcbe8; }
+		&.legend--block-lightBlue { background-color: #0380b1; }
+		&.legend--block-darkBlue { background-color: #272160; }
 	}
 }
 
-.chart--donut-2seg {
-  &:after{
-    border-color: #69b46e #69b46e #fe2b50 #fe2b50 !important;
-    
-  }
-}
-.chart--donut-3seg {
-  &:after{
-    border-color: #e5bd4a #fe2b50 #fe2b50 #69b46e !important;
-  }
-}
-
-.rainwater-chart {
-	position: relative;
-	height: 400px;
-	margin-left: 100px;
+.rainwater-tank {
 	margin-top: 50px;
-	margin-bottom: 50px;
+	position: relative;
 	
-	.rainwater-chart--xAxis {
-		content: '';
-		height: 1px;
-		width: 100%;
-		position: absolute;
-		background: #62605f;
-		bottom: 0;
+	img {
+		position: relative;
+		z-index: 9;
 	}
-	.rainwater-chart--yAxis {
-		content: '';
-		height: 400px;
-		width: 1px;
+	
+	.rainwater-tank--container {
 		position: absolute;
-		background: #62605f;
 		top: 0;
-	}
-	
-	.rainwater-chart--tick-marks {
-		position: absolute;
-		height: 400px;
-		width: 15px;
-		display: flex;
-		flex-direction: column;
-    justify-content: space-between;
+		clip-path: polygon(70px 0, 160px 0, 160px 30px, 220px 80px, 220px 280px, 0 280px, 0 80px, 70px 30px);
+		width: 100%;
+		height: 100%;
 		
-		.rainwater-tank--tick-marks--tick {
-			width: 15px;
-			height: 1px;
-			background: #62605f;
-			display: block;
-			position: relative;
-			
-			span {
-				position: absolute;
-				line-height: 1.5;
-				font-size: 36px;
-				color: #CCC;
-				
-				right: 30px;
-				top: -20px;
-			}
-		}
-	}
-	
-	.rainwater-chart--bar {
-		width: 200px;
-		position: absolute;
-		bottom: 0;
-		border-top-left-radius: 25px;
-		border-top-right-radius: 25px;
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		
-		&:after {
-			content: '';
-			height: 50px;
+		.rainwater-tank--level {
+			background: #0c80c0;
+			position: absolute;
+			bottom: 0;
+			height: 0;
 			width: 100%;
-			border-radius: 75px/25px;
-			background: white;
-			position: absolute;
-    	top: -10px;
-			left: 0;
-		}
-		
-		&.blue { 
-			background: #0680c4;
-			left: 75px;
 			
-			&:after { background: #00a0de; }
-		}
-		&.lightblue { 
-			background: #8fcbe8; 
-			left: 325px;
-			
-			&:after { background: #33b2e7; }
-		}
-		
-		span { 
-			position: absolute;
-			z-index: 2;
-	    width: 100%;
-			display: block;
-			text-align: center;
-			margin-top: -45px;
-		}
-		
-		.rainwater-chart--subbar {
-			margin: 0 10px;
-			padding: 25% 0;
-			box-sizing: border-box;
-			
-			span {
-				margin-top: 0;
-				font-size: 36px;
-				width: 90%;
-			}
-			
-			&.gray {
-				background: #59595b;
-			}
-			&.green {
-				background: #69b46e;
+			&:after {
+				content: '';
+				background: url('/src/assets/slide4_water.svg');
+				position: absolute;
+				background-repeat: no-repeat;
+		    top: -16px;
+		    width: 100%;
+		    height: 17px;
 			}
 		}
 	}
 }
+
 
 @keyframes fillAnimation{
   0% { transform : rotate(-45deg) }

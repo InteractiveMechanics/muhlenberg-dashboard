@@ -1,33 +1,105 @@
-import React from "react";
-import { XYPlot, XAxis, YAxis, VerticalBarSeries } from 'react-vis';
+import React, { useState, useEffect } from "react";
+import { XYPlot, XAxis, YAxis, VerticalBarSeries, LabelSeries, HorizontalBarSeries } from 'react-vis';
 
-export function DashboardEnergy(props) {		
-	let annualEnergyProduction = [{
-		x: 'Jan',
-		y: 12,
-	},
-	{
-		x: 'Feb',
-		y: 36,
-	},
-	{
-		x: 'Mar',
-		y: 24,
-	}];
+export function DashboardEnergy(props) {
+	const loading = props.loading;
+	const liveData = props.liveData;
+	const updatedTime = props.updatedTime;
 	
-	let annualEnergyConsumption = [{
-		x: 'Jan',
-		y: 4,
-	},
-	{
-		x: 'Feb',
-		y: 7,
-	},
-	{
-		x: 'Mar',
-		y: 9,
-	}];
+	const [annualEnergyProd, setAnnualEnergyProd] = useState([]);
+	const [annualEnergyConsp, setAnnualEnergyConsp] = useState([]);
+	const [currentEnergy, setCurrentEnergy] = useState([]);
+	const [currentEnergyLabels, setCurrentEnergyLabels] = useState([]);
 	
+	useEffect(() => {
+		if (liveData !== null) {			
+			setAnnualEnergyProd([
+				{ x: 'Jan', y: findValueById('January_Total_Production') },
+				{ x: 'Feb', y: findValueById('February_Total_Production') },
+				{ x: 'Mar', y: findValueById('March_Total_Production') },
+				{ x: 'Apr', y: findValueById('April_Total_Production') },
+				{ x: 'May', y: findValueById('May_Total_Production') },
+				{ x: 'Jun', y: findValueById('June_Total_Production') },
+				{ x: 'Jul', y: findValueById('July_Total_Production') },
+				{ x: 'Aug', y: findValueById('August_Total_Production') },
+				{ x: 'Sep', y: findValueById('September_Total_Production') },
+				{ x: 'Oct', y: findValueById('October_Total_Production') },
+				{ x: 'Nov', y: findValueById('November_Total_Production') },
+				{ x: 'Dec', y: findValueById('December_Total_Production') }
+			]);
+			setAnnualEnergyConsp([
+				{ x: 'Jan', y: findValueById('January_Total_Consumption') },
+				{ x: 'Feb', y: findValueById('February_Total_Consumption') },
+				{ x: 'Mar', y: findValueById('March_Total_Consumption') },
+				{ x: 'Apr', y: findValueById('April_Total_Consumption') },
+				{ x: 'May', y: findValueById('May_Total_Consumption') },
+				{ x: 'Jun', y: findValueById('June_Total_Consumption') },
+				{ x: 'Jul', y: findValueById('July_Total_Consumption') },
+				{ x: 'Aug', y: findValueById('August_Total_Consumption') },
+				{ x: 'Sep', y: findValueById('September_Total_Consumption') },
+				{ x: 'Oct', y: findValueById('October_Total_Consumption') },
+				{ x: 'Nov', y: findValueById('November_Total_Consumption') },
+				{ x: 'Dec', y: findValueById('December_Total_Consumption') }
+			]);
+			setCurrentEnergy([
+				{ x: findValueById('Active_Distribution_Power'), y: 'Consumption', color: '#840c08' },
+				{ x: findValueById('Active_Solar_Production'), y: 'Production', color: '#6aac6e' },
+			]);
+			setCurrentEnergyLabels([
+				{ x: findValueById('Active_Distribution_Power')/2, y: 'Consumption', label: findValueById('Active_Distribution_Power').toLocaleString() + " kWh" },
+				{ x: findValueById('Active_Solar_Production')/2, y: 'Production', label: findValueById('Active_Solar_Production').toLocaleString() + " kWh" },
+			]);
+			
+		}		
+	}, [liveData]);
+	
+	const findValueById = (id) => {
+		if (liveData) {
+			const val = liveData.find((val) => id == val.point);
+			const index = liveData.indexOf(val);
+			if (liveData[index].value > 0) {
+				return liveData[index].value;
+			} else {
+				return 0.1;
+			}
+		}
+	}
+	
+	const convertToKilos = (num) => {
+		const lookup = [
+	    { value: 1, symbol: "" },
+	    { value: 1e3, symbol: "K" },
+	    { value: 1e6, symbol: "M" },
+	    { value: 1e9, symbol: "G" },
+	    { value: 1e12, symbol: "T" },
+	    { value: 1e15, symbol: "P" },
+	    { value: 1e18, symbol: "E" }
+	  ];
+	  const rx = /\.0+$|(\.[0-9]*[1-9])0+$/;
+	  var item = lookup.slice().reverse().find(function(item) {
+	    return num >= item.value;
+	  });
+	  return item ? (num / item.value).toFixed(0).replace(rx, "$1") + item.symbol : "0";
+	}
+	
+	const convertToCO2 = (kwh) => {
+		return (kwh / 1410.437235543).toFixed(0);
+	}
+	const convertToTrees = (kwh) => {
+		return (kwh / 1191.89511323).toFixed(0);
+	}
+	const convertToHomes = (kwh) => {
+		return (kwh / 7246.376811594).toFixed(0);
+	}
+	const convertToCars = (kwh) => {
+		return (kwh / 0.568472514).toFixed(0);
+	}
+	
+		
+	if (loading) {
+		return <div>Loading</div>;
+	}
+
   return (
 		<div className="dashboard dashboard--energy">
 			<div className="dashboard--container large padding-right">
@@ -35,60 +107,61 @@ export function DashboardEnergy(props) {
 				<div className="row">
 					<div className="col">
 					
-						<h3>Current Energy Production</h3>
-						<div className="chart--wrapper">
-							<div className="chart--donut chart--donut-2seg">
-								<div className="ticker" style={{ transform: 'rotate(-90deg)' }}></div>
-							</div>
-							<span className="min">0</span>
-							<span className="max">10</span>
-							<span className="total">1%</span>
+						<h3 className="text-left">Current Energy Production vs. Consumption</h3><br/>
+
+						<XYPlot yType="ordinal" width={775} height={250} colorType="literal">
+							<XAxis tickTotal={5} />
 							
-							<small>Solar Panel Power Generated</small>
-						</div>
+							<HorizontalBarSeries data={currentEnergy} barWidth={0.65} />
+							<LabelSeries data={currentEnergyLabels} allowOffsetToBeReversed labelAnchorX="middle" labelAnchorY="middle" />
+						</XYPlot>
 						
-					</div>
-					<div className="col">
-					
-						<h3>Current Energy Consumption</h3>
-						<div className="chart--wrapper">
-							<div className="chart--donut chart--donut-3seg">
-								<div className="ticker" style={{ transform: 'rotate(-90deg)' }}></div>
-							</div>
-							<span className="min">0</span>
-							<span className="max">10</span>
-							<span className="total">1%</span>
-							
-							<ul className="legend">
-								<li><div className="legend--block legend--block-green"></div>Below expected kWh</li>
-								<li><div className="legend--block legend--block-yellow"></div>Expected kWh</li>
-								<li><div className="legend--block legend--block-red"></div>Above expected kWh</li>
-							</ul>
-						</div>
-						
+						<ul className="legend" style={{ left: 650, top: 0 }}>
+							<li><div className="legend--block legend--block-green" /> Current energy production</li>
+							<li><div className="legend--block legend--block-red" /> Current energy consumption</li>
+						</ul>
+						<br/>
 					</div>
 				</div>
 				<div className="row">
 					<div className="col">
 					
-						<h3>Annual Energy Production vs. Consumption</h3>
-						<XYPlot xType="ordinal" width={1550} height={500}>
+						<h3 className="text-left">Annual Energy Production vs. Consumption</h3><br/>
+						
+						<XYPlot xType="ordinal" width={775} height={250}>
 							<XAxis />
 							<YAxis />
-							<VerticalBarSeries data={annualEnergyProduction} />
-							<VerticalBarSeries data={annualEnergyConsumption} />
+							<VerticalBarSeries data={annualEnergyProd} color="#6aac6e" />
+							<VerticalBarSeries data={annualEnergyConsp} color="#840c08" />
 						</XYPlot>
+						
+						<ul className="legend" style={{ left: 650, top: 0 }}>
+							<li><div className="legend--block legend--block-green" /> Energy production</li>
+							<li><div className="legend--block legend--block-red" /> Energy consumption</li>
+						</ul>
+					
+						<br/>
+						<span className="last-updated">{ updatedTime ? `Last updated: ${updatedTime}` : "Data not available" }</span>
 						
 					</div>
 				</div>
 			</div>
-			<div className="dashboard--container">
+			<div className="dashboard--container small">
 				<div className="row">
 					<div className="col">
 				
-						<h3>Carbon Footprint Equivalent</h3>
+						<h3 className="text-left">Carbon Footprint Equivalent</h3>
 						
-			
+							{ findValueById('Active_Solar_Production').toLocaleString() } kWh solar
+							<br/>
+							{ parseFloat(convertToCO2(findValueById('Active_Solar_Production'))).toLocaleString() } Metric tons of CO2
+							<br/>
+							{ parseFloat(convertToTrees(findValueById('Active_Solar_Production'))).toLocaleString() } acres of U.S. forests sequestered in 1 year by carbon
+							<br/>
+							{ parseFloat(convertToHomes(findValueById('Active_Solar_Production'))).toLocaleString() } houses worth of electricity for 1 year
+							<br/>
+							{ parseFloat(convertToCars(findValueById('Active_Solar_Production'))).toLocaleString() } vehicle miles/year greenhouse gas emissions
+						
 					</div>
 				</div>
 			</div>

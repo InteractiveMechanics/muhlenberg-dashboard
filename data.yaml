@@ -91,8 +91,35 @@ screens:
     
     showSidebar: true
     showSidebarBackground: false
-    
+
   - id: 3
+    layout: "dynamic"
+    title: "Building Energy Performance"
+    
+    icon: "./src/assets/icons/icon-3.svg"
+    iconSize: "large"
+    
+    bg: "./src/assets/backgrounds/background_3.jpg"
+    
+    showSidebar: false
+    showSidebarBackground: false
+
+  - id: 4
+    layout: "dynamic"
+    title: "Water Efficiency + Rainwater Reuse"
+    
+    icon: "./src/assets/icons/icon-4.svg"
+    iconSize: "large"
+    
+    bg: "./src/assets/backgrounds/background_4.jpg"
+    
+    showSidebar: true
+    showSidebarBackground: true
+    sidebar: >
+      <p>Fahy Commons features sustainable water strategies to reduce the amount of potable water used in daily operations through low-flow plumbing fixtures and an irrigation-free landscape design.</p><br/>
+      <p>To further decrease potable water usage, rainwater that falls on the roof is collected in a 10,000 gallon cistern buried beneath the central terrace.  A pump and visible filtration system located on the Garden Level distributes this water throughout the building to flush toilets.</p>
+    
+  - id: 5
     layout: "2col"
     title: "Birds + Bees"
     
@@ -113,7 +140,7 @@ screens:
     showSidebar: false
     showSidebarBackground: false
 
-  - id: 4
+  - id: 6
     layout: "1col"
     title: "Ecological Landscape"
     
@@ -128,7 +155,7 @@ screens:
       <p>Design doesn't stop at the building.  Fahy Commons includes an ecological landscape design that includes native species and stormwater management strategies, all working together to filter runoff, recharge groundwater, encourage pollination, and sequester carbon.</p><br/>
       <img src="./src/assets/slide6_legend.png" style="max-width: 100%;" /> 
     
-  - id: 5
+  - id: 7
     layout: "2col"
     title: "Social Equity By Design"
     
@@ -148,7 +175,7 @@ screens:
     showSidebar: false
     showSidebarBackground: false
 
-  - id: 6
+  - id: 8
     layout: "1col"
     title: "Biophilic Design"
     
