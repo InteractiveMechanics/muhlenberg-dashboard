@@ -8,9 +8,9 @@ import './App.scss';
 
 export function App(props) {		
 	const data = props.data;
-	const timer = 300000;
+	const timer = 30000;
 	
-	const [activeId, setActiveId] = useState(4);
+	const [activeId, setActiveId] = useState(0);
   
   useInterval(() => {
 	  if (activeId < data.screens.length - 1) {

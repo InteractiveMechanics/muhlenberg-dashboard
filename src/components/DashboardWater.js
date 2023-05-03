@@ -7,7 +7,7 @@ export function DashboardWater(props) {
 	const updatedTime = props.updatedTime;
 	
 	const [pieChartData, setPieChartData] = useState([]);
-	const [cisternLevel, setCisternLevel] = useState(8);
+	const [cisternLevel, setCisternLevel] = useState(0);
 	const [totalWaterUsage, setTotalWaterUsage] = useState(0);
 	
 	useEffect(() => {		
@@ -16,7 +16,7 @@ export function DashboardWater(props) {
 			{ angle: findValueById('Domestic_Water_Used_YTD'), label: convertToKilos(findValueById('Domestic_Water_Used_YTD')), color: '#272160' }
 		]);
 		
-		setCisternLevel(findValueById('Active_Rainwater_Tank_Level') / 6.7 * 100);
+		setCisternLevel(findValueById('Active_Rainwater_Tank_Level') / 11 * 100);
 		setTotalWaterUsage(findValueById('Rainwater_Used_YTD') + findValueById('Domestic_Water_Used_YTD'));
 		
 	}, [liveData, loading]);
@@ -51,7 +51,7 @@ export function DashboardWater(props) {
 	}
 	
 	if (loading) {
-		return <div>Loading</div>;
+		return <div className="loading"><img src="/src/assets/loading.gif" /></div>;
 	}
 	
   return (
@@ -73,6 +73,7 @@ export function DashboardWater(props) {
 							height={250}
 							showLabels={true}
 							labelsAboveChildren={true}
+							labelsRadiusMultiplier={0.5}
 							colorType="literal" />
 							
 							<ul className="legend" style={{ left: 300, top: 100 }}>

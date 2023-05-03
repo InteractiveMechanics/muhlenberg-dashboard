@@ -46,8 +46,8 @@ export function DashboardEnergy(props) {
 				{ x: findValueById('Active_Solar_Production'), y: 'Production', color: '#6aac6e' },
 			]);
 			setCurrentEnergyLabels([
-				{ x: findValueById('Active_Distribution_Power')/2, y: 'Consumption', label: findValueById('Active_Distribution_Power').toLocaleString() + " kWh" },
-				{ x: findValueById('Active_Solar_Production')/2, y: 'Production', label: findValueById('Active_Solar_Production').toLocaleString() + " kWh" },
+				{ x: findValueById('Active_Distribution_Power')/2, y: 'Consumption', label: findValueById('Active_Distribution_Power').toLocaleString(undefined, { maximumFractionDigits: 1 }) + " kWh" },
+				{ x: findValueById('Active_Solar_Production')/2, y: 'Production', label: findValueById('Active_Solar_Production').toLocaleString(undefined, { maximumFractionDigits: 1 }) + " kWh" },
 			]);
 			
 		}		
@@ -57,11 +57,7 @@ export function DashboardEnergy(props) {
 		if (liveData) {
 			const val = liveData.find((val) => id == val.point);
 			const index = liveData.indexOf(val);
-			if (liveData[index].value > 0) {
-				return liveData[index].value;
-			} else {
-				return 0.1;
-			}
+			return liveData[index].value;
 		}
 	}
 	
@@ -97,7 +93,7 @@ export function DashboardEnergy(props) {
 	
 		
 	if (loading) {
-		return <div>Loading</div>;
+		return <div className="loading"><img src="/src/assets/loading.gif" /></div>;
 	}
 
   return (
@@ -110,7 +106,7 @@ export function DashboardEnergy(props) {
 						<h3 className="text-left">Current Energy Production vs. Consumption</h3><br/>
 
 						<XYPlot yType="ordinal" width={775} height={250} colorType="literal">
-							<XAxis tickTotal={5} />
+							<XAxis tickSizeOuter={0} tickSizeInner={4} tickTotal={5} />
 							
 							<HorizontalBarSeries data={currentEnergy} barWidth={0.65} />
 							<LabelSeries data={currentEnergyLabels} allowOffsetToBeReversed labelAnchorX="middle" labelAnchorY="middle" />
@@ -126,11 +122,11 @@ export function DashboardEnergy(props) {
 				<div className="row">
 					<div className="col">
 					
-						<h3 className="text-left">Annual Energy Production vs. Consumption</h3><br/>
+						<h3 className="text-left">Annual Energy Production vs. Consumption (kwH)</h3><br/>
 						
 						<XYPlot xType="ordinal" width={775} height={250}>
-							<XAxis />
-							<YAxis />
+							<XAxis tickSizeOuter={4} tickSizeInner={0} />
+							<YAxis tickFormat={v => convertToKilos(v)} />
 							<VerticalBarSeries data={annualEnergyProd} color="#6aac6e" />
 							<VerticalBarSeries data={annualEnergyConsp} color="#840c08" />
 						</XYPlot>
@@ -152,16 +148,54 @@ export function DashboardEnergy(props) {
 				
 						<h3 className="text-left">Carbon Footprint Equivalent</h3>
 						
-							{ findValueById('Active_Solar_Production').toLocaleString() } kWh solar
+							<div className="stat-row">
+								<div className="stat-col text-center">
+									<img src="/src/assets/symbols/symbols-SolarPanel.svg" className="icon icon-solar" />
+									<span className="stat stat-md">{ findValueById('April_Total_Production').toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-label stat-label-bold text-center">kWh solar</span>
+								</div>
+								<div className="stat-col stat-col-sm">
+									<span className="stat stat-lg"><br/><br/>=</span>
+								</div>
+								<div className="stat-col text-center stat-bg">
+									<br/>
+									<span className="stat stat-lg stat-color-black">{ parseFloat(convertToCO2(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-label stat-color-black">Metric tons<br/>of <span className="stat stat-label stat-label-bold stat-color-black">CO2</span></span>
+								</div>
+							</div>
+
 							<br/>
-							{ parseFloat(convertToCO2(findValueById('Active_Solar_Production'))).toLocaleString() } Metric tons of CO2
-							<br/>
-							{ parseFloat(convertToTrees(findValueById('Active_Solar_Production'))).toLocaleString() } acres of U.S. forests sequestered in 1 year by carbon
-							<br/>
-							{ parseFloat(convertToHomes(findValueById('Active_Solar_Production'))).toLocaleString() } houses worth of electricity for 1 year
-							<br/>
-							{ parseFloat(convertToCars(findValueById('Active_Solar_Production'))).toLocaleString() } vehicle miles/year greenhouse gas emissions
-						
+
+							<div className="stat-row">
+								<div className="stat-col">
+									<img src="/src/assets/symbols/symbols-Tree.svg" className="icon icon-tree" />
+								</div>
+								<div className="stat-col stat-col-lg">
+									<span className="stat stat-lg stat-color-green">{ parseFloat(convertToTrees(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-label">acres of U.S. forests sequestered<br/>in 1 year by carbon</span>
+								</div>
+							</div>
+							
+							<div className="stat-row">
+								<div className="stat-col">
+									<img src="/src/assets/symbols/symbols-Electricity.svg" className="icon icon-electricity" />
+								</div>
+								<div className="stat-col stat-col-lg">
+									<span className="stat stat-lg stat-color-yellow">{ parseFloat(convertToHomes(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-label">houses worth of electricity<br/>for 1 year</span>
+								</div>
+							</div>
+							
+							<div className="stat-row">
+								<div className="stat-col">
+									<img src="/src/assets/symbols/symbols-Car.svg" className="icon icon-car" />
+								</div>
+								<div className="stat-col stat-col-lg">
+									<span className="stat stat-lg stat-color-beige">{ parseFloat(convertToCars(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-label">vehicle miles/year<br/>greenhouse gas emissions</span>
+								</div>
+							</div>
+
 					</div>
 				</div>
 			</div>

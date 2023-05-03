@@ -374,6 +374,9 @@ main {
 		font-weight: 500;
 		fill: white;
 	}
+	line {
+		stroke: white;
+	}
 }
 .rv-xy-plot__series--label text,
 .rv-radial-chart text {
@@ -416,6 +419,57 @@ main {
 	}
 }
 
+.stat-row {
+	display: flex;
+	margin-top: 40px;
+}
+.stat-col {
+	display: flex;
+  flex-direction: column;
+  width: 220px;
+  
+  &.stat-col-sm { width: 50px; }
+  &.stat-col-lg { width: 300px; }
+  
+  &.stat-bg {
+	  background-image: url(/src/assets/symbols/symbols-CO2.svg);
+	  background-repeat: no-repeat;
+	  background-size: contain;
+  }
+}
+.icon {	
+	margin: 0 auto;
+	
+	&.icon-solar { width: 110px; margin-bottom: 10px; }
+	&.icon-cloud { width: 160px; }
+	&.icon-car { width: 80px; }
+	&.icon-electricity { width: 40px; }
+	&.icon-tree { width: 80px; }
+}
+.stat {
+	&.stat-lg {
+		margin-bottom: 5px;
+		font-weight: 700;
+		font-size: 36px;
+	}
+	&.stat-md {
+		margin-bottom: 5px;
+		font-weight: 700;
+		font-size: 24px;
+	}
+	&.stat-label {
+		font-size: 18px;
+		line-height: 1.5;
+		
+		&.stat-label-bold { font-weight: 700; }
+	}
+	
+	&.stat-color-black { color: #231f20; }
+	&.stat-color-green { color: #69bc6f; }
+	&.stat-color-yellow { color: #dcb44b; }
+	&.stat-color-beige { color: #ad9f87; }
+}
+
 .rainwater-tank {
 	margin-top: 50px;
 	position: relative;
@@ -450,6 +504,17 @@ main {
 			}
 		}
 	}
+}
+
+.loading {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  
+  img {
+	  opacity: 0.65;
+  }
 }
 
 
