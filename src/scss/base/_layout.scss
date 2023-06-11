@@ -426,9 +426,10 @@ main {
 .stat-col {
 	display: flex;
   flex-direction: column;
-  width: 220px;
+  width: 140px;
   
   &.stat-col-sm { width: 50px; }
+  &.stat-col-md { width: 220px; }
   &.stat-col-lg { width: 300px; }
   
   &.stat-bg {
@@ -438,12 +439,16 @@ main {
   }
 }
 .icon {	
-	margin: 0 auto;
+	margin: 0;
+	
+	&.icon-center {
+		//margin: 0 auto;
+	}
 	
 	&.icon-solar { width: 110px; margin-bottom: 10px; }
 	&.icon-cloud { width: 160px; }
 	&.icon-car { width: 80px; }
-	&.icon-electricity { width: 40px; }
+	&.icon-electricity { width: 40px; margin-left: 20px; }
 	&.icon-tree { width: 80px; }
 }
 .stat {

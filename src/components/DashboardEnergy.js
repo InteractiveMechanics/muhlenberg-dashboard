@@ -10,9 +10,11 @@ export function DashboardEnergy(props) {
 	const [annualEnergyConsp, setAnnualEnergyConsp] = useState([]);
 	const [currentEnergy, setCurrentEnergy] = useState([]);
 	const [currentEnergyLabels, setCurrentEnergyLabels] = useState([]);
+	const [totalEnergy, setTotalEnergy] = useState([]);
 	
 	useEffect(() => {
 		if (liveData !== null) {			
+			
 			setAnnualEnergyProd([
 				{ x: 'Jan', y: findValueById('January_Total_Production') },
 				{ x: 'Feb', y: findValueById('February_Total_Production') },
@@ -41,14 +43,36 @@ export function DashboardEnergy(props) {
 				{ x: 'Nov', y: findValueById('November_Total_Consumption') },
 				{ x: 'Dec', y: findValueById('December_Total_Consumption') }
 			]);
+			
 			setCurrentEnergy([
-				{ x: findValueById('Active_Distribution_Power'), y: 'Consumption', color: '#840c08' },
+				{ x: getConsumptionValue(findValueById('Active_Distribution_Power'), findValueById('Active_Solar_Production')), y: 'Consumption', color: '#840c08' },
 				{ x: findValueById('Active_Solar_Production'), y: 'Production', color: '#6aac6e' },
 			]);
+			
+			// ALWAYS GIVE A POSITIVE VALUE
 			setCurrentEnergyLabels([
-				{ x: findValueById('Active_Distribution_Power')/2, y: 'Consumption', label: findValueById('Active_Distribution_Power').toLocaleString(undefined, { maximumFractionDigits: 1 }) + " kWh" },
-				{ x: findValueById('Active_Solar_Production')/2, y: 'Production', label: findValueById('Active_Solar_Production').toLocaleString(undefined, { maximumFractionDigits: 1 }) + " kWh" },
+				{ x: getConsumptionValue(findValueById('Active_Distribution_Power'), findValueById('Active_Solar_Production'))/2, 
+					y: 'Consumption', 
+					label: getConsumptionValue(findValueById('Active_Distribution_Power'), findValueById('Active_Solar_Production')).toLocaleString(undefined, { maximumFractionDigits: 1 }) + " kWh" },
+				{ x: findValueById('Active_Solar_Production')/2, 
+					y: 'Production', 
+					label: findValueById('Active_Solar_Production').toLocaleString(undefined, { maximumFractionDigits: 1 }) + " kWh" },
 			]);
+			
+			setTotalEnergy(
+				findValueById('January_Total_Production') +
+				findValueById('February_Total_Production') +
+				findValueById('March_Total_Production') +
+				findValueById('April_Total_Production') +
+				findValueById('May_Total_Production') +
+				findValueById('June_Total_Production') +
+				findValueById('July_Total_Production') +
+				findValueById('August_Total_Production') +
+				findValueById('September_Total_Consumption') +
+				findValueById('October_Total_Consumption') +
+				findValueById('November_Total_Consumption') +
+				findValueById('December_Total_Consumption')
+			);
 			
 		}		
 	}, [liveData]);
@@ -58,6 +82,14 @@ export function DashboardEnergy(props) {
 			const val = liveData.find((val) => id == val.point);
 			const index = liveData.indexOf(val);
 			return liveData[index].value;
+		}
+	}
+	
+	const getConsumptionValue = (cons, prod) => {
+		if (cons > 0) {
+			return cons;
+		} else {
+			return prod + cons;
 		}
 	}
 	
@@ -122,7 +154,7 @@ export function DashboardEnergy(props) {
 				<div className="row">
 					<div className="col">
 					
-						<h3 className="text-left">Annual Energy Production vs. Consumption (kwH)</h3><br/>
+						<h3 className="text-left">Annual Energy Production vs. Consumption (kWh)</h3><br/>
 						
 						<XYPlot xType="ordinal" width={775} height={250}>
 							<XAxis tickSizeOuter={4} tickSizeInner={0} />
@@ -146,20 +178,20 @@ export function DashboardEnergy(props) {
 				<div className="row">
 					<div className="col">
 				
-						<h3 className="text-left">Carbon Footprint Equivalent</h3>
+						<h3 className="text-left">Carbon Footprint Equivalent (YTD)</h3>
 						
 							<div className="stat-row">
-								<div className="stat-col text-center">
+								<div className="stat-col stat-col-md text-left">
 									<img src="/src/assets/symbols/symbols-SolarPanel.svg" className="icon icon-solar" />
-									<span className="stat stat-md">{ findValueById('April_Total_Production').toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
-									<span className="stat stat-label stat-label-bold text-center">kWh solar</span>
+									<span className="stat stat-md">{ convertToKilos(totalEnergy) } kWh</span>
+									<span className="stat stat-label stat-label-bold text-left">solar energy<br/>production</span>
 								</div>
 								<div className="stat-col stat-col-sm">
 									<span className="stat stat-lg"><br/><br/>=</span>
 								</div>
-								<div className="stat-col text-center stat-bg">
+								<div className="stat-col stat-col-md text-center stat-bg">
 									<br/>
-									<span className="stat stat-lg stat-color-black">{ parseFloat(convertToCO2(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-lg stat-color-black">{ parseFloat(convertToCO2(totalEnergy)).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
 									<span className="stat stat-label stat-color-black">Metric tons<br/>of <span className="stat stat-label stat-label-bold stat-color-black">CO2</span></span>
 								</div>
 							</div>
@@ -168,30 +200,30 @@ export function DashboardEnergy(props) {
 
 							<div className="stat-row">
 								<div className="stat-col">
-									<img src="/src/assets/symbols/symbols-Tree.svg" className="icon icon-tree" />
+									<img src="/src/assets/symbols/symbols-Tree.svg" className="icon icon-tree icon-center" />
 								</div>
 								<div className="stat-col stat-col-lg">
-									<span className="stat stat-lg stat-color-green">{ parseFloat(convertToTrees(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
-									<span className="stat stat-label">acres of U.S. forests sequestered<br/>in 1 year by carbon</span>
+									<span className="stat stat-lg stat-color-green">{ parseFloat(convertToTrees(totalEnergy)).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-label">acres of U.S. forest carbon<br/>sequestration in 1 year</span>
 								</div>
 							</div>
 							
 							<div className="stat-row">
 								<div className="stat-col">
-									<img src="/src/assets/symbols/symbols-Electricity.svg" className="icon icon-electricity" />
+									<img src="/src/assets/symbols/symbols-Electricity.svg" className="icon icon-electricity icon-center" />
 								</div>
 								<div className="stat-col stat-col-lg">
-									<span className="stat stat-lg stat-color-yellow">{ parseFloat(convertToHomes(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-lg stat-color-yellow">{ parseFloat(convertToHomes(totalEnergy)).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
 									<span className="stat stat-label">houses worth of electricity<br/>for 1 year</span>
 								</div>
 							</div>
 							
 							<div className="stat-row">
 								<div className="stat-col">
-									<img src="/src/assets/symbols/symbols-Car.svg" className="icon icon-car" />
+									<img src="/src/assets/symbols/symbols-Car.svg" className="icon icon-car icon-center" />
 								</div>
 								<div className="stat-col stat-col-lg">
-									<span className="stat stat-lg stat-color-beige">{ parseFloat(convertToCars(findValueById('April_Total_Production'))).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
+									<span className="stat stat-lg stat-color-beige">{ convertToKilos(convertToCars(totalEnergy)) }</span>
 									<span className="stat stat-label">vehicle miles/year<br/>greenhouse gas emissions</span>
 								</div>
 							</div>
