@@ -35,14 +35,15 @@ The dashboard's data for non-dynamic slides is controlled through a data file, `
 - [x] General - Fade in title, content, and sidebar animations
 - [x] General - Add sample for QR code graphic placement and size, update docs
 - [x] General - Add in final static images and content
+- [x] General - Create connection to HiveMQ data, parse data
+- [x] Slide 4 - Add in last updated on date stamp
+- [x] Slide 5 - Add in last updated on date stamp
+- [x] Slide 4 - Convert data and style/finalize annual energy production graph
+- [x] Slide 4 - Convert data and style/finalize energy graphs
+- [x] Slide 4 - Convert data and style/finalize carbon footprint metrics
+- [x] Slide 5 - Convert rainwater data and style/finalize tank level graph
+- [x] Slide 5 - Style/finalize rainwater collection graph
+- [x] Slide 5 - Add in dynamic data to paragraph text
 
 ### Backlog
-- [ ] General - Create connection to HiveMQ data, parse data
-- [ ] Slide 4 - Add in last updated on date stamp
-- [ ] Slide 5 - Add in last updated on date stamp
-- [ ] Slide 4 - Convert data and style/finalize annual energy production graph
-- [ ] Slide 4 - Convert data and style/finalize energy graphs
-- [ ] Slide 4 - Convert data and style/finalize carbon footprint metrics
-- [ ] Slide 5 - Convert rainwater data and style/finalize tank level graph
-- [ ] Slide 5 - Style/finalize rainwater collection graph
-- [ ] Slide 5 - Add in dynamic data to paragraph text
+Done! 
