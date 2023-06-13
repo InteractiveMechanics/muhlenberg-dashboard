@@ -10,7 +10,7 @@ export function App(props) {
 	const data = props.data;
 	const timer = 300000;
 	
-	const [activeId, setActiveId] = useState(3);
+	const [activeId, setActiveId] = useState(0);
   
   useInterval(() => {
 	  if (activeId < data.screens.length - 1) {
