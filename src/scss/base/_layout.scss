@@ -433,7 +433,7 @@ main {
   &.stat-col-lg { width: 300px; }
   
   &.stat-bg {
-	  background-image: url(/src/assets/symbols/symbols-CO2.svg);
+	  //background-image: url(/src/assets/symbols/symbols-CO2.svg);
 	  background-repeat: no-repeat;
 	  background-size: contain;
   }
@@ -498,9 +498,7 @@ main {
 			height: 0;
 			width: 100%;
 			
-			&:after {
-				content: '';
-				background: url('/src/assets/slide4_water.svg');
+			.rainwater-tank--water {
 				position: absolute;
 				background-repeat: no-repeat;
 		    top: -16px;

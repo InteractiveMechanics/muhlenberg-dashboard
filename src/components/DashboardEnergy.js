@@ -182,14 +182,14 @@ export function DashboardEnergy(props) {
 						
 							<div className="stat-row">
 								<div className="stat-col stat-col-md text-left">
-									<img src="/src/assets/symbols/symbols-SolarPanel.svg" className="icon icon-solar" />
+									<img src="./src/assets/symbols/symbols-SolarPanel.svg" className="icon icon-solar" />
 									<span className="stat stat-md">{ convertToKilos(totalEnergy) } kWh</span>
 									<span className="stat stat-label stat-label-bold text-left">solar energy<br/>production</span>
 								</div>
 								<div className="stat-col stat-col-sm">
 									<span className="stat stat-lg"><br/><br/>=</span>
 								</div>
-								<div className="stat-col stat-col-md text-center stat-bg">
+								<div className="stat-col stat-col-md text-center stat-bg" style={{ backgroundImage: `url('./src/assets/symbols/symbols-CO2.svg')` }}>
 									<br/>
 									<span className="stat stat-lg stat-color-black">{ parseFloat(convertToCO2(totalEnergy)).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
 									<span className="stat stat-label stat-color-black">Metric tons<br/>of <span className="stat stat-label stat-label-bold stat-color-black">CO2</span></span>
@@ -200,7 +200,7 @@ export function DashboardEnergy(props) {
 
 							<div className="stat-row">
 								<div className="stat-col">
-									<img src="/src/assets/symbols/symbols-Tree.svg" className="icon icon-tree icon-center" />
+									<img src="./src/assets/symbols/symbols-Tree.svg" className="icon icon-tree icon-center" />
 								</div>
 								<div className="stat-col stat-col-lg">
 									<span className="stat stat-lg stat-color-green">{ parseFloat(convertToTrees(totalEnergy)).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
@@ -210,7 +210,7 @@ export function DashboardEnergy(props) {
 							
 							<div className="stat-row">
 								<div className="stat-col">
-									<img src="/src/assets/symbols/symbols-Electricity.svg" className="icon icon-electricity icon-center" />
+									<img src="./src/assets/symbols/symbols-Electricity.svg" className="icon icon-electricity icon-center" />
 								</div>
 								<div className="stat-col stat-col-lg">
 									<span className="stat stat-lg stat-color-yellow">{ parseFloat(convertToHomes(totalEnergy)).toLocaleString(undefined, { maximumFractionDigits: 1 }) }</span>
@@ -220,7 +220,7 @@ export function DashboardEnergy(props) {
 							
 							<div className="stat-row">
 								<div className="stat-col">
-									<img src="/src/assets/symbols/symbols-Car.svg" className="icon icon-car icon-center" />
+									<img src="./src/assets/symbols/symbols-Car.svg" className="icon icon-car icon-center" />
 								</div>
 								<div className="stat-col stat-col-lg">
 									<span className="stat stat-lg stat-color-beige">{ convertToKilos(convertToCars(totalEnergy)) }</span>

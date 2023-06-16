@@ -51,7 +51,7 @@ export function DashboardWater(props) {
 	}
 	
 	if (loading) {
-		return <div className="loading"><img src="/src/assets/loading.gif" /></div>;
+		return <div className="loading"><img src="./src/assets/loading.gif" /></div>;
 	}
 	
   return (
@@ -59,7 +59,7 @@ export function DashboardWater(props) {
 			<div className="dashboard--container small padding-right">
 				
 				<h3 className="text-left">Rainwater Harvesting</h3>
-				<img src="/src/assets/slide4_rainwater.png" style={{ width: 400, height: 650, marginTop: 50 }} />
+				<img src="./src/assets/slide4_rainwater.png" style={{ width: 400, height: 650, marginTop: 50 }} />
 				
 			</div>
 			<div className="dashboard--container large">
@@ -94,9 +94,11 @@ export function DashboardWater(props) {
 						<h3>Current Rainwater Cistern Level</h3>
 						
 						<div className="rainwater-tank">
-							<img src="/src/assets/slide4_cistern.svg" />
+							<img src="./src/assets/slide4_cistern.svg" />
 							<div className="rainwater-tank--container">
-								<div className="rainwater-tank--level" style={{ height: `${cisternLevel}%` }} />
+								<div className="rainwater-tank--level" style={{ height: `${cisternLevel}%` }}>
+									<div className="rainwater-tank--water" style={{ backgroundImage: `url('./src/assets/slide4_water.svg')` }} />
+								</div>
 							</div>
 						</div>
 						
